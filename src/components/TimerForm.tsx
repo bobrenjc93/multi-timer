@@ -5,7 +5,7 @@ import { TimerFormData } from '@/types/timer';
 
 interface TimerFormProps {
   onAddTimer: (name: string, durationInSeconds: number) => void;
-  nameInputRef?: React.RefObject<HTMLInputElement>;
+  nameInputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
 export const TimerForm = ({ onAddTimer, nameInputRef }: TimerFormProps) => {
@@ -35,7 +35,7 @@ export const TimerForm = ({ onAddTimer, nameInputRef }: TimerFormProps) => {
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      handleSubmit(e as any);
+      handleSubmit(e as React.FormEvent);
     }
   };
 

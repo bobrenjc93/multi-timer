@@ -13,14 +13,14 @@ class AudioNotificationManager {
 
   private initializeAudio() {
     try {
-      // @ts-ignore - handling browser compatibility
+      // @ts-expect-error - handling browser compatibility
       this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
       // Set up user interaction handler
       this.setupUserInteractionHandler();
 
       console.log('Audio context created:', this.audioContext.state);
-    } catch (error) {
+    } catch {
       console.warn('Web Audio API not supported, trying fallback audio');
       this.initializeFallbackAudio();
     }
@@ -34,7 +34,7 @@ class AudioNotificationManager {
       this.fallbackAudio = new Audio(audioData);
       this.fallbackAudio.volume = 0.3;
       console.log('Fallback audio initialized');
-    } catch (error) {
+    } catch {
       console.warn('Fallback audio also failed, timer sounds will be silent');
     }
   }

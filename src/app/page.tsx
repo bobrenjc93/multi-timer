@@ -13,7 +13,6 @@ export default function Home() {
 
   const hasRunningTimers = timers.some(timer => timer.status === 'running');
   const hasPausedTimers = timers.some(timer => timer.status === 'paused');
-  const hasActiveTimers = hasRunningTimers || hasPausedTimers;
   const hasAnyTimers = timers.length > 0;
 
   // Setup keyboard shortcuts
