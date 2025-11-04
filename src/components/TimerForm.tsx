@@ -11,7 +11,7 @@ interface TimerFormProps {
 export const TimerForm = ({ onAddTimer, nameInputRef }: TimerFormProps) => {
   const [formData, setFormData] = useState<TimerFormData>({
     name: '',
-    minutes: 3,
+    minutes: 15,
     seconds: 0,
   });
 
@@ -28,7 +28,7 @@ export const TimerForm = ({ onAddTimer, nameInputRef }: TimerFormProps) => {
     // Reset form
     setFormData({
       name: '',
-      minutes: 3,
+      minutes: 15,
       seconds: 0,
     });
   };
